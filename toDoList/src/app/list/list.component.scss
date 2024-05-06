@@ -1,0 +1,39 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+
+  mat-form-field {
+    width: 60%;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+  }
+}
+
+.task-wrapper {
+  .task {
+    background-color: #82aee8;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+    &-body {
+      display: flex;
+      flex-grow: 1;
+      font-size: 20px;
+    }
+
+    &-icon{
+      margin: 0 10px;
+    }
+  }
+}

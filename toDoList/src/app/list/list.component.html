@@ -1,0 +1,31 @@
+<form [formGroup]="taskForm" (ngSubmit)="submitTaskForm">
+  <mat-form-field class="example-full-width">
+    <mat-label>Write some task...</mat-label>
+    <textarea formControlName="body" matInput></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Add a deadline</mat-label>
+    <input formControlName="deadline" matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-flat-button color="warn" (click)="cancelTaskForm()">Cancel</button>
+    <button mat-flat-button color="primary" (click)="submitTaskForm()">Add Task</button>
+  </div>
+</form>
+
+<div class="task-wrapper">
+  @if (taskList.length > 0) {
+    @for (task of taskList; track $index) {
+      <div class="task">
+        <mat-checkbox (change)="updateTask(task)" color="primary" class="example-margin" [(ngModel)]="task.isDone"></mat-checkbox>
+        <div class="task-body">{{ task.body }}</div>
+        <div class="task-data">{{ task.deadline | date }}</div>
+        <mat-icon class="task-icon" (click)="deleteTask(task.id!)">delete</mat-icon>
+      </div>
+    }
+  }
+</div>
