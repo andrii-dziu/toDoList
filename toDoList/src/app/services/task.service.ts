@@ -37,7 +37,7 @@ export class TaskService {
     return this.http.delete(this.BASE_URL + '/tasks/' + id);
   }
 
-  public updateTask(taskData: Task): Observable<{message: string}>{
-    return this.http.put<{message: string}>(this.BASE_URL + '/tasks', taskData);
+  public updateTask(taskData: Task): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(this.BASE_URL + '/tasks', taskData);
   }
 }
